@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { useState } from "react";
+import React from 'react';
 import './App.css';
+import Header from "./Component/Header"
+import Navbar from './Component/Navbar';
+import CartData from "./Component/cartData"
+import {Footer} from './Component/Footer'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [count, setCount] = useState(0);
+    return <>
+
+        {/* Calling the function */}
+        <Navbar data={{ count, setCount }} />
+        <Header />
+        <CartData count={count} setCount={setCount} />
+        <Footer/>
+
+    </>
 }
 
 export default App;
